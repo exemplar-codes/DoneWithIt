@@ -1,5 +1,5 @@
-import ViewImageScreen from "./app/screens/ViewImageScreen";
+import StyleTrialScreen from "./app/screens/StyleTrialScreen";
 
 export default function App() {
-  return <ViewImageScreen />;
+  return <StyleTrialScreen />;
 }
