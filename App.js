@@ -1,5 +1,5 @@
-import StyleTrialScreen from "./app/screens/StyleTrialScreen";
+import IconsTrialScreen from "./app/screens/IconsTrialScreen";
 
 export default function App() {
-  return <StyleTrialScreen />;
+  return <IconsTrialScreen />;
 }
