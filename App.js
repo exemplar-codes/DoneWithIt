@@ -1,5 +1,10 @@
-import StyleTrialScreen from "./app/screens/StyleTrialScreen";
+import AppScreen from "./app/components/AppScreen";
+import AppButton from "./app/components/AppButton";
 
 export default function App() {
-  return <StyleTrialScreen />;
+  return (
+    <AppScreen style={{ justifyContent: "center", alignItems: "center" }}>
+      <AppButton compact />
+    </AppScreen>
+  );
 }
