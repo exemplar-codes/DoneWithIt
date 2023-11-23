@@ -8,19 +8,24 @@ export default function AppButton({
     console.log("Button pressed");
   },
   compact = false,
+  bgColor = colors.primary,
+  textColor = colors.white,
 }) {
   return (
     <TouchableOpacity
-      style={[styles.button, compact ? {} : { alignSelf: "stretch" }]}
+      style={[
+        styles.button,
+        compact ? {} : { alignSelf: "stretch" },
+        { backgroundColor: bgColor, color: textColor },
+      ]}
       onPress={onPress}
     >
-      <Text style={styles.titleStyles}>{title}</Text>
+      <Text style={[styles.titleStyles, { color: textColor }]}>{title}</Text>
     </TouchableOpacity>
   );
 }
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: colors.primary,
     borderRadius: 25,
 
     justifyContent: "center",

@@ -1,10 +1,5 @@
-import AppScreen from "./app/components/AppScreen";
-import AppButton from "./app/components/AppButton";
+import WelcomeScreen from "./app/screens/WelcomeScreen";
 
 export default function App() {
-  return (
-    <AppScreen style={{ justifyContent: "center", alignItems: "center" }}>
-      <AppButton compact />
-    </AppScreen>
-  );
+  return <WelcomeScreen />;
 }

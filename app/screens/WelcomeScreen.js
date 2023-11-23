@@ -1,11 +1,14 @@
 import React from "react";
 import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
 import colors from "../config/colors";
+import AppButton from "../components/AppButton";
+
 function WelcomeScreen(props) {
   return (
     <ImageBackground
       style={styles.background}
       source={require("../assets/background.jpg")}
+      blurRadius={2}
     >
       <View aria-label="main-content" style={styles.mainContent}>
         <View aria-label="logo-and-tagline" style={styles.logoAndTagline}>
@@ -16,8 +19,31 @@ function WelcomeScreen(props) {
           <Text>Sell What You Don't need</Text>
         </View>
       </View>
-      <View style={[styles.button, styles.loginButton]} />
-      <View style={[styles.button, styles.signupButton]} />
+      <View
+        aria-label="footer"
+        style={{
+          paddingHorizontal: 24,
+          paddingVertical: 16,
+          alignItems: "stretch",
+          gap: 12,
+          width: "100%",
+        }}
+      >
+        <AppButton
+          title="Login"
+          onPress={() => {
+            console.log("Login");
+          }}
+          bgColor={colors.primary}
+        />
+        <AppButton
+          title="Signup"
+          onPress={() => {
+            console.log("Signup");
+          }}
+          bgColor={colors.secondary}
+        />
+      </View>
     </ImageBackground>
   );
 }
