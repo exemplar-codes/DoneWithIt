@@ -1,24 +1,30 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 import ImageInput from "./ImageInput";
 
 export default function ImageInputList({ images, onAdd, onRemove }) {
   return (
-    <View style={styles.container}>
-      {images.map((uri) => (
-        <ImageInput key={uri} image={uri} onAdd={onAdd} onRemove={onRemove} />
-      ))}
-      <ImageInput key="extra" image="" onAdd={onAdd} />
+    <View>
+      <ScrollView horizontal contentContainerStyle={styles.scrollContainer}>
+        {images.map((uri) => (
+          <ImageInput key={uri} image={uri} onAdd={onAdd} onRemove={onRemove} />
+        ))}
+        <ImageInput key="extra" image="" onAdd={onAdd} />
+      </ScrollView>
     </View>
   );
 }
 
+// the following solves height problems of ScrollView
 const styles = StyleSheet.create({
-  container: {
-    width: "100%",
+  scrollContainer: {
+    // width: "100%", don't do this. let the scroll dimension be unspecified
     padding: 8,
 
     flexDirection: "row",
     gap: 4,
+  },
+  container: {
+    borderWidth: 1,
   },
 });
