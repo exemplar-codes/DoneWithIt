@@ -1,6 +1,6 @@
 import React from "react";
-import ListingEditScreen from "./app/screens/ListingEditScreen";
+import PhotoFormScreen from "./app/screens/PhotoFormScreen";
 
 export default function App() {
-  return <ListingEditScreen />;
+  return <PhotoFormScreen />;
 }

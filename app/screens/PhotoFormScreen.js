@@ -1,14 +1,16 @@
 import React from "react";
 import AppScreen from "../components/AppScreen";
-import AppTextInput from "../components/AppTextInput";
+import { StyleSheet, Text } from "react-native";
 
 export default function PhotoFormScreen() {
   return (
     <AppScreen styles={styles.container}>
-      <ImagePickerArray />
-      <AppTextInput />
-      <AppTextInput />
-      <AppTextInput />
+      <Text>PhotoFormScreen</Text>
+      {/* <ImageInputList />  multi image picker */}
+      {/* <AppTextInput /> */}
+      {/* dropdown */}
+      {/* <AppTextInput /> */}
+      {/* + validation */}
     </AppScreen>
   );
 }
