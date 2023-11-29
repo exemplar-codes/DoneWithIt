@@ -13,7 +13,7 @@ import {
  * Makes sure system UI is visible on both ios and Android
  *
  * @param fullScreen go fullscreen? default: false
- * @param styles styles (for convenience, and to avoid wrapper soup)
+ * @param style styles (for convenience, and to avoid wrapper soup)
  */
 export default function AppScreen(props) {
   // negate safety - go fullscreen
