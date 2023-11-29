@@ -4,7 +4,7 @@ import ImageInput from "./ImageInput";
 
 export default function ImageInputList({ images, onAdd, onRemove }) {
   return (
-    <View>
+    <View style={styles.container}>
       <ScrollView horizontal contentContainerStyle={styles.scrollContainer}>
         {images.map((uri) => (
           <ImageInput key={uri} image={uri} onAdd={onAdd} onRemove={onRemove} />
@@ -18,11 +18,11 @@ export default function ImageInputList({ images, onAdd, onRemove }) {
 // the following solves height problems of ScrollView
 const styles = StyleSheet.create({
   scrollContainer: {
-    // width: "100%", don't do this. let the scroll dimension be unspecified
+    // width: "100%", // don't do this. let the scroll dimension be unspecified
     padding: 8,
 
-    flexDirection: "row",
-    gap: 4,
+    // flexDirection: "row", // not needed since horizontal specified
+    gap: 16,
   },
   container: {
     borderWidth: 1,
