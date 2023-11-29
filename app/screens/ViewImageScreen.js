@@ -1,53 +1,50 @@
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
-import AppScreen from "../components/AppScreen";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+
 import colors from "../config/colors";
 
-function ViewImageScreen({ imgUrl = "../assets/chair.jpg", ...rest }) {
+function ViewImageScreen(props) {
   return (
-    <AppScreen style={styles.container}>
-      <View aria-label="buttons-at-the-top" style={styles.buttonsContainer}>
-        <View style={[styles.button, styles.leftButton]}></View>
-        <View style={[styles.button, styles.rightButton]}></View>
+    <View style={styles.container}>
+      <View style={styles.closeIcon}>
+        <MaterialCommunityIcons name="close" color="white" size={35} />
       </View>
-
+      <View style={styles.deleteIcon}>
+        <MaterialCommunityIcons
+          name="trash-can-outline"
+          color="white"
+          size={35}
+        />
+      </View>
       <Image
-        resizeMethod="scale"
+        resizeMode="contain"
         style={styles.image}
-        source={
-          true || imgUrl?.startsWith(".")
-            ? require("../assets/chair.jpg")
-            : { uri: imgUrl, ...rest }
-        }
-      ></Image>
-    </AppScreen>
+        source={require("../assets/chair.jpg")}
+      />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  closeIcon: {
+    position: "absolute",
+    top: 40,
+    left: 30,
+  },
   container: {
+    backgroundColor: colors.black,
     flex: 1,
-    backgroundColor: "black",
+  },
+  deleteIcon: {
+    position: "absolute",
+    top: 40,
+    right: 30,
   },
   image: {
-    // fix height to percentage
-    height: "70%",
     width: "100%",
+    height: "100%",
   },
-
-  buttonsContainer: {
-    alignSelf: "stretch",
-
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingHorizontal: "5%",
-
-    marginTop: "5%",
-    marginBottom: "15%",
-  },
-
-  button: { height: 50, width: 50, borderRadius: 1 },
-  leftButton: { backgroundColor: colors.primary },
-  rightButton: { backgroundColor: colors.secondary },
 });
+
 export default ViewImageScreen;
