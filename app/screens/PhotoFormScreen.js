@@ -2,10 +2,18 @@ import React, { useState } from "react";
 import { StyleSheet, Text } from "react-native";
 import AppScreen from "../components/AppScreen";
 import ImageInput from "../components/ImageInput";
+import ImageInputList from "../components/ImageInputList";
 
 export default function PhotoFormScreen() {
-  const [image, setImage] = useState();
-  const [removed, setIsRemoved] = useState(false);
+  const [images, setImages] = useState([]);
+  const onAdd = (newUri) => {
+    setImages((prev) => [...prev, newUri]);
+  };
+  const onRemove = (newUri) => {
+    setImages((prev) =>
+      prev.filter((existingUri) => !(existingUri === newUri))
+    );
+  };
   return (
     <AppScreen style={styles.container}>
       {/* <Text
@@ -15,20 +23,9 @@ export default function PhotoFormScreen() {
       >
         PhotoFormScreen
       </Text> */}
-      <Text>Uncontrolled (works!)</Text>
-      <ImageInput />
+      <Text>ImageInputList</Text>
+      <ImageInputList images={images} onAdd={onAdd} onRemove={onRemove} />
 
-      <Text>---</Text>
-      <Text>Controlled</Text>
-      <Text>Removed: {`${removed}`}</Text>
-      <ImageInput
-        image={image}
-        onAdd={(uri) => setImage(uri)}
-        onRemove={(uri) => {
-          setImage(null);
-          setIsRemoved(true);
-        }}
-      />
       {/* <ImageInputList />  multi image picker */}
       {/* <AppTextInput /> */}
       {/* dropdown */}
@@ -42,7 +39,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 4,
     backgroundColor: "dodgerblue",
-    justifyContent: "center",
-    alignItems: "center",
+    // justifyContent: "center",
+    // alignItems: "center",
   },
 });

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Alert, Image, StyleSheet, TouchableOpacity } from "react-native";
 import Icon from "./Icon";
 import defaultStyles from "../config/styles";
@@ -13,9 +13,15 @@ export default function ImageInput({
   onRemove = () => {},
   showDeleteConfirmation = true,
 }) {
+  // #1 Commenting, to avoid uncontrolled usage temporarily
   // adding this so it can be used standalone (like HTML input)
-  const [internalImage, setInternalImage] = useState(image);
-  const imageToUse = image ?? internalImage;
+  // const [internalImage, setInternalImage] = useState(image);
+  // const imageToUse = image ?? internalImage;
+
+  // #1 Adding
+  const imageToUse = image;
+  const internalImage = image;
+  const setInternalImage = () => {};
 
   const onPressHandler = async () => {
     if (internalImage) {
