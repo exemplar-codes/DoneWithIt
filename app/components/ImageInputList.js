@@ -7,7 +7,13 @@ export default function ImageInputList({ images, onAdd, onRemove }) {
     <View style={styles.container}>
       <ScrollView horizontal contentContainerStyle={styles.scrollContainer}>
         {images.map((uri) => (
-          <ImageInput key={uri} image={uri} onAdd={onAdd} onRemove={onRemove} />
+          <ImageInput
+            key={uri}
+            image={uri}
+            onAdd={onAdd}
+            onRemove={onRemove}
+            showDeleteConfirmation={false}
+          />
         ))}
         <ImageInput key="extra" image="" onAdd={onAdd} />
       </ScrollView>
@@ -25,6 +31,6 @@ const styles = StyleSheet.create({
     gap: 16,
   },
   container: {
-    borderWidth: 1,
+    // borderWidth: 1,
   },
 });

@@ -16,14 +16,6 @@ export default function PhotoFormScreen() {
   };
   return (
     <AppScreen style={styles.container}>
-      {/* <Text
-        style={{
-          backgroundColor: "red",
-        }}
-      >
-        PhotoFormScreen
-      </Text> */}
-      <Text>ImageInputList</Text>
       <ImageInputList images={images} onAdd={onAdd} onRemove={onRemove} />
 
       {/* <ImageInputList />  multi image picker */}
@@ -38,8 +30,5 @@ export default function PhotoFormScreen() {
 const styles = StyleSheet.create({
   container: {
     padding: 4,
-    backgroundColor: "dodgerblue",
-    // justifyContent: "center",
-    // alignItems: "center",
   },
 });
