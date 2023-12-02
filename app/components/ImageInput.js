@@ -54,16 +54,20 @@ export default function ImageInput({
     };
 
     if (showDeleteConfirmation) {
-      Alert.alert("Delete photo", "Remove the photo", [
-        {
-          text: "Cancel",
-          onPress: () => {},
-        },
-        {
-          text: "Ok",
-          onPress: deleteImageFlowNonUI,
-        },
-      ]);
+      Alert.alert(
+        "Delete photo",
+        "Are you sure you want to remove this image?",
+        [
+          {
+            text: "Cancel",
+            onPress: () => {},
+          },
+          {
+            text: "Yes",
+            onPress: deleteImageFlowNonUI,
+          },
+        ]
+      );
     } else {
       deleteImageFlowNonUI();
     }
