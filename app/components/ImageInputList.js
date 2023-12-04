@@ -1,47 +1,40 @@
-import React, { useRef, useState } from "react";
-import { ScrollView, StyleSheet, View } from "react-native";
+import React, { useRef } from "react";
+import { View, StyleSheet, ScrollView } from "react-native";
 import ImageInput from "./ImageInput";
 
-export default function ImageInputList({ images, onAdd, onRemove }) {
-  const ref = useRef();
-  const onAddInternal = (...args) => {
-    onAdd(...args);
-    ref.current.scrollToEnd();
-    // scroll to end so Add icon is always visible by default
-  };
+function ImageInputList({ imageUris = [], onRemoveImage, onAddImage }) {
+  const scrollView = useRef();
 
   return (
-    <View style={styles.container}>
+    <View>
       <ScrollView
-        ref={ref}
+        ref={scrollView}
         horizontal
-        contentContainerStyle={styles.scrollContainer}
+        onContentSizeChange={() => scrollView.current.scrollToEnd()}
       >
-        {images.map((uri) => (
-          <ImageInput
-            key={uri}
-            image={uri}
-            // onAdd={onAdd}
-            onRemove={onRemove}
-            showDeleteConfirmation={false}
-          />
-        ))}
-        <ImageInput key="extra" image="" onAdd={onAddInternal} />
+        <View style={styles.container}>
+          {imageUris.map((uri) => (
+            <View key={uri} style={styles.image}>
+              <ImageInput
+                imageUri={uri}
+                onChangeImage={() => onRemoveImage(uri)}
+              />
+            </View>
+          ))}
+          <ImageInput onChangeImage={(uri) => onAddImage(uri)} />
+        </View>
       </ScrollView>
     </View>
   );
 }
 
-// the following solves height problems of ScrollView
 const styles = StyleSheet.create({
-  scrollContainer: {
-    // width: "100%", // don't do this. let the scroll dimension be unspecified
-    padding: 8,
-
-    // flexDirection: "row", // not needed since horizontal specified
-    gap: 16,
-  },
   container: {
-    // borderWidth: 1,
+    flexDirection: "row",
+  },
+  image: {
+    marginRight: 10,
   },
 });
+
+export default ImageInputList;
