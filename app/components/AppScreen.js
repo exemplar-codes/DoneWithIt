@@ -18,7 +18,11 @@ import {
 export default function AppScreen(props) {
   // negate safety - go fullscreen
   if (props.fullScreen) {
-    return <View style={[props.style]}>{props.children}</View>;
+    return (
+      <View style={[styles.fullScreenStyle, props.style]}>
+        {props.children}
+      </View>
+    );
   }
 
   return (
@@ -44,8 +48,11 @@ AppScreen.Example = (props) => (
 );
 
 const styles = StyleSheet.create({
+  fullScreenStyle: {
+    flex: 1,
+  },
   topSafety: {
     flex: 1,
-    marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    // marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
 });
