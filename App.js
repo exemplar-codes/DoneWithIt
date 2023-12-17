@@ -1,5 +1,6 @@
-import LoginScreen from "./app/screens/LoginScreen";
+import PushNotifcationSelf from "./app/screens/PushNotifcation.self";
+import PushNotifcationExpo from "./app/screens/PushNotifcation.expo";
 
 export default function App() {
-  return <LoginScreen />;
+  return <PushNotifcationSelf />;
 }
