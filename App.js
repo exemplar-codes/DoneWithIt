@@ -11,7 +11,6 @@ import {
 } from "react-native";
 
 import * as ImagePicker from "expo-image-picker";
-import * as NavigationBar from "expo-navigation-bar";
 import AppButton from "./app/components/AppButton";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useEffect, useState } from "react";
